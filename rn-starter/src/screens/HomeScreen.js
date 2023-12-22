@@ -6,7 +6,8 @@ const HomeScreen = ({navigation}) => {
     <View>
      <Text style={styles.text}>HomeScreen</Text>
      <Button title="Go to Componensts demo" onPress={() => navigation.navigate('Components') } />
-     <Button title="Go to List demo" on onPress={() => navigation.navigate('List') } />
+     <Button title="Go to List demo" onPress={() => navigation.navigate('List') } />
+     <Button title="Image demo" onPress={() => navigation.navigate('Image') } />
   </View>
   )
 };
