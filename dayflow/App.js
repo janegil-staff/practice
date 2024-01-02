@@ -1,7 +1,7 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, SafeAreaView, View } from 'react-native';
-import { ActivityHomeScreen } from './src/screens/Home';
-import { COLORS } from './src/variables/styles';
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, SafeAreaView, View } from "react-native";
+import { ActivityHomeScreen } from "./src/screens/Home";
+import { COLORS } from "./src/variables/styles";
 
 export default function App() {
   return (
@@ -15,14 +15,14 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  safeContainer:{
+  safeContainer: {
     flex: 1,
     backgroundColor: COLORS.black,
   },
   container: {
     flex: 1,
     padding: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
