@@ -1,14 +1,19 @@
-import React from "react";
-import { View, StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 
-const PageContainer = props => {
-  return <View style={styles.container}>{props.children}</View>;
+const PageContainer = (props) => {
+  return (
+    <View style={{ ...styles.container, ...props.style }}>
+      {props.children}
+    </View>
+  );
 };
+
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
+    paddingHorizontal: 20,
     flex: 1,
     backgroundColor: "white",
   },
 });
+
 export default PageContainer;

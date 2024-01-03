@@ -50,6 +50,7 @@ const MainNavigator = (props) => {
         name="ChatScreen"
         component={ChatScreen}
         options={{
+          headerTitle: "",
           headerBackTitle: "Back",
         }}
       />

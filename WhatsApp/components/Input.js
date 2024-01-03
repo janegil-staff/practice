@@ -1,25 +1,35 @@
-import React from "react";
-import { View, Text, StyleSheet, TextInput } from "react-native";
-import colors from "../constants/colors";
+import { StyleSheet, Text, TextInput, View } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 
+import colors from "../constants/colors";
+
 const Input = (props) => {
+  const onChangeText = (text) => {
+    props.onInputChanged(props.id, text);
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.label}>{props.label}</Text>
+
       <View style={styles.inputContainer}>
         {props.icon && (
           <props.iconPack
-            name={props.icon || 15}
-            size={props.iconSize}
+            name={props.icon}
+            size={props.iconSize || 15}
             style={styles.icon}
           />
         )}
-        <TextInput style={styles.input} />
+        <TextInput
+          {...props}
+          style={styles.input}
+          onChangeText={onChangeText}
+        />
       </View>
+
       {props.errorText && (
         <View style={styles.errorContainer}>
-          <Text style={styles.errorText}>{props.errorText}</Text>
+          <Text style={styles.errorText}>{props.errorText[0]}</Text>
         </View>
       )}
     </View>
@@ -30,12 +40,19 @@ const styles = StyleSheet.create({
   container: {
     width: "100%",
   },
+  label: {
+    marginVertical: 8,
+    fontFamily: "bold",
+    letterSpacing: 0.3,
+    color: colors.textColor,
+  },
   inputContainer: {
     width: "100%",
-    backgroundColor: colors.nearlyWhite,
-    paddingVertical: 15,
+    backgroundColor: "red",
     paddingHorizontal: 10,
+    paddingVertical: 15,
     borderRadius: 2,
+    backgroundColor: colors.nearlyWhite,
     flexDirection: "row",
     alignItems: "center",
   },
@@ -43,17 +60,11 @@ const styles = StyleSheet.create({
     marginRight: 10,
     color: colors.grey,
   },
-  label: {
-    marginVertical: 8,
-    fontFamily: "bold",
-    letterSpacing: 0.3,
-    color: colors.textColor,
-  },
   input: {
     color: colors.textColor,
     flex: 1,
     fontFamily: "regular",
-    letterSpacing: 0.2,
+    letterSpacing: 0.3,
     paddingTop: 0,
   },
   errorContainer: {
@@ -66,4 +77,5 @@ const styles = StyleSheet.create({
     letterSpacing: 0.3,
   },
 });
+
 export default Input;
